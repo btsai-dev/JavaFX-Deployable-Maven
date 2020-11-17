@@ -33,14 +33,13 @@
                 <version>0.0.3</version>
                 <configuration>
                     <mainClass>com.example.javafx.Hello</mainClass>
-                    <launcher>launch.sh</launcher>
+                    <launcher>launch</launcher>
                     <compress>2</compress>
                     <jlinkZipName>deployment-zip</jlinkZipName>
                     <jlinkImageName>deployment-image</jlinkImageName>
                     <!--<jlinkExecutable>deployment-exec</jlinkExecutable>-->
                     <noManPages>true</noManPages>
                     <noHeaderFiles>true</noHeaderFiles>
-
                 </configuration>
             </plugin>
         </plugins>
