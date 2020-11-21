@@ -1,10 +1,12 @@
 package com.example.javafx;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Hello extends Application {
 
@@ -14,15 +16,17 @@ public class Hello extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("My First JavaFX App");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("hello.fxml"));
+        try {
+            Parent content = loader.load();
+            Scene scene = new Scene(content, 1280, 720);
+            primaryStage.setScene(scene);
+        } catch(IOException exception){
+            throw new RuntimeException(exception);
+        }
 
-        Label label = new Label("Hello World from JavaFX!");
-        label.setAlignment(Pos.CENTER);
-
-        // This sets the size of the Scene to be 400px wide, 200px high
-        Scene scene = new Scene(label, 400, 200);
-        primaryStage.setScene(scene);
-
+        primaryStage.setTitle("Sample App");
         primaryStage.show();
     }
 }
